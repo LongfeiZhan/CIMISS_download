@@ -1,0 +1,25 @@
+import time
+import requests
+
+time_start = time.time() # 开始计时
+
+headers = {'Cookie': 'xxxxxxxxx',
+           'User-agent': 'xxxxxxxx'}
+
+# url连接来自于CIMISS生成的连接
+url = 'xxxxxx'
+response = requests.get(url, headers = headers)
+contents = response.text
+
+time_end1 = time.time() # 结束计时
+time_c1 = time_end1 - time_start
+print(time_c1)
+
+# 保存到txt
+file = open('down.txt', 'w', encoding='utf-8')
+file.write(contents)
+file.close()
+
+time_end2 = time.time()  # 结束计时
+time_c2 = time_end2 - time_start
+print(time_c2)
